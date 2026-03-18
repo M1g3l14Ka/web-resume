@@ -6,11 +6,11 @@ export interface ITimelineItem {
   category: CategoryType;
   date: string;
   title: string;
-  subtitle: string; 
+  subtitle: string;
   description: string;
   code?: string;
-  link?: string; 
-  im: string;
+  link?: string;
+  img: string;
   isInProgress?: boolean;
 }
 
