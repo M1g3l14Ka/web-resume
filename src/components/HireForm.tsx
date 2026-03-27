@@ -1,7 +1,7 @@
 'use client'
 import { ILinkBtns } from "@/types"
 import { motion } from "framer-motion";
-import { BorderTrail } from "@/components/motion-primitives/border-trail";
+import { BorderTrail } from "@/components/borderTrail/motion-primitives/border-trail";
 import { sendEmail } from "@/actions/send-email";
 import React, { useState } from "react";
 

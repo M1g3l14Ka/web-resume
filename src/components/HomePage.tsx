@@ -31,7 +31,7 @@ export default function HomePage({ headerTitleBtns, headerTiles, hireBtns } : Ho
 
     const shuffelColumns = useMemo(() => {
         return [...Array(16)].map(() => {
-            return [...headerTiles, ...headerTiles, ...headerTiles, ...headerTiles, ...headerTiles, ...headerTiles].sort(() => Math.random() - 0.5)
+            return [ ...headerTiles, ...headerTiles, ].sort(() => Math.random() - 0.5)
         })
     }, [headerTiles])
 
@@ -78,6 +78,7 @@ export default function HomePage({ headerTitleBtns, headerTiles, hireBtns } : Ho
                                                 src={tile.src}
                                                 sizes="60px"
                                                 className="brightness-75 blur-[1px]"
+                                                loading="lazy"
                                             />
                                         </div>
                                     ))}
