@@ -78,7 +78,6 @@ export default function HomePage({ headerTitleBtns, headerTiles, hireBtns } : Ho
                                                 src={tile.src}
                                                 sizes="60px"
                                                 className="brightness-75 blur-[1px]"
-                                                loading="lazy"
                                             />
                                         </div>
                                     ))}
