@@ -23,7 +23,7 @@ export const petTimelineData: ITimelineItem[] = [
     description: 'A commercial product creation form built with Next.js and Server Actions. Features secure API integration and a custom Gemini AI module that automatically generates SEO metadata based on user input',
     code: 'https://github.com/M1g3l14Ka/table-CRM',
     link: 'https://next-tablecrm.vercel.webp/',
-    img:'/petImg/table-CRM.png',
+    img:'/petImg/table-CRM.webp',
     isInProgress: false,
   },
   {
@@ -35,7 +35,7 @@ export const petTimelineData: ITimelineItem[] = [
     description: 'Little clicker game: Bash the bots! Smash those robots until their circuits fry. Farm some gold and pay off your debt - but make sure you take some time while you do it =)',
     code: 'https://github.com/M1g3l14Ka/clicker-game',
     link: 'https://clicker-robot-game.vercel.webp/',
-    img:'/petImg/clicker-game.png',
+    img:'/petImg/clicker-game.webp',
     isInProgress: false,
   },
   {
@@ -141,17 +141,17 @@ export const headerTitleBtns = [
 
 
 export const headerTiles = [
-  { id: 1, src: '/tilesImg/html.png', alt: 'HTML' },
-  { id: 2, src: '/tilesImg/css.png', alt: 'CSS' },
-  { id: 3, src: '/tilesImg/js.png', alt: 'JavaScript' },
-  { id: 4, src: '/tilesImg/typeScript.png', alt: 'TypeScript' },
-  { id: 5, src: '/tilesImg/react.png', alt: 'React' },
-  { id: 6, src: '/tilesImg/next.png', alt: 'Next.js' },
-  { id: 7, src: '/tilesImg/tailwind.png', alt: 'Tailwind' },
-  { id: 8, src: '/tilesImg/gitHub.png', alt: 'GitHub' },
-  { id: 9, src: '/tilesImg/docker.png', alt: 'Docker' },
-  { id: 10, src: '/tilesImg/node.png', alt: 'Node.js' },
-  { id: 11, src: '/tilesImg/vuejs.png', alt: 'Vue.js' },
+  { id: 1, src: '/tilesImg/html.webp', alt: 'HTML' },
+  { id: 2, src: '/tilesImg/css.webp', alt: 'CSS' },
+  { id: 3, src: '/tilesImg/js.webp', alt: 'JavaScript' },
+  { id: 4, src: '/tilesImg/typeScript.webp', alt: 'TypeScript' },
+  { id: 5, src: '/tilesImg/react.webp', alt: 'React' },
+  { id: 6, src: '/tilesImg/next.webp', alt: 'Next.js' },
+  { id: 7, src: '/tilesImg/tailwind.webp', alt: 'Tailwind' },
+  { id: 8, src: '/tilesImg/gitHub.webp', alt: 'GitHub' },
+  { id: 9, src: '/tilesImg/docker.webp', alt: 'Docker' },
+  { id: 10, src: '/tilesImg/node.webp', alt: 'Node.js' },
+  { id: 11, src: '/tilesImg/vuejs.webp', alt: 'Vue.js' },
 ];
 
 
