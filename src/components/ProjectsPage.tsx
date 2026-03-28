@@ -65,7 +65,20 @@ export default function ProjectsPage({ petTimelineData }: ProjectsPageProps) {
                                                 className="object-cover group-hover:scale-105 transition-all duration-700 "
                                             />
                                         </div>
-                                        <h1 className="m-2">{item.subtitle}</h1>
+                                        <div className="flex flex-wrap justify-center gap-2 m-2">
+                                            {Array.isArray(item.subtitle) ? (
+                                              item.subtitle.map((tech, index) => (
+                                                <span
+                                                  key={index}
+                                                  className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-xs sm:text-sm text-gray-300 hover:text-white hover:border-orange-500/50 transition-colors cursor-default"
+                                                >
+                                                  {tech}
+                                                </span>
+                                              ))
+                                            ) : (
+                                              <span className="text-sm text-gray-300">{item.subtitle}</span>
+                                            )}
+                                        </div>
                                         <h1 className="m-2">{item.date}</h1>
                                         <h1 className="m-2">{item.description}</h1>    
                                     </div>
