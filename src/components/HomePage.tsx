@@ -137,7 +137,7 @@ export default function HomePage({ headerTitleBtns, headerTiles, hireBtns } : Ho
                                 alt="Michael K. profile photo"
                                 src='/meImg/prof.webp'
                                 sizes="(max-width: 768px) 224px, 288px"
-                                className="object-cover object-center"
+                                className="object-cover object-center rounded-2xl"
                             />
                             <BorderTrail
                                 style={{
