@@ -17,7 +17,7 @@ export const petTimelineData: ITimelineItem[] = [
   {
     id: 2,
     category: 'Pet',
-    date: 'Mar 2026',
+    date: 'Sep 2025',
     title: 'Lite ai chat',
     subtitle: ['React 19', 'TypeScript', 'Vite', 'Tailwind CSS v4', 'Node.js', 'Express.js', 'Gemini API'],
     description: 'Interactive web application that allows users to communicate with an AI via text or voice. Built as a full-stack project to demonstrate modern web development practices.',
@@ -29,7 +29,7 @@ export const petTimelineData: ITimelineItem[] = [
   {
     id: 3,
     category: 'Pet',
-    date: 'Mar 2026',
+    date: 'Apr 2025',
     title: 'Lite-shop',
     subtitle: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'shadcn/ui', 'Framer Motion', 'Zustand + persist middleware', 'DummyJSON API', 'use-debounce'],
     description: 'This is a minimalist online store with simulated purchases. I created it as a pet project to improve my skills in modern frontend development, state management, and API interactions. The essence is clear from its name - lightweight, fast, and focused on the shopping experience.',
@@ -41,7 +41,7 @@ export const petTimelineData: ITimelineItem[] = [
   {
     id: 4,
     category: 'Pet',
-    date: 'Apr 2026',
+    date: 'Dec 2024',
     title: 'Seller cars',
     subtitle: ['Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'Playwright', 'Resend'],
     description: 'Premium used cars from South Korea - scraped from ENCAR.com',
@@ -53,7 +53,7 @@ export const petTimelineData: ITimelineItem[] = [
   {
     id: 5,
     category: 'Pet',
-    date: 'Mar 2026',
+    date: 'July 2024',
     title: 'Weather App',
     subtitle: ['Next.js 16', 'React 19', 'TypeScript', 'Tailwind CSS v4', 'Framer Motion', 'OpenWeatherMap API'],
     description: 'Weather App is a modern application for viewing weather in any city worldwide..',
@@ -65,7 +65,7 @@ export const petTimelineData: ITimelineItem[] = [
   {
     id: 6,
     category: 'Pet',
-    date: 'Feb 2026',
+    date: 'Apr 2024',
     title: 'Table CRM',
     subtitle: ['Next.js 16', 'TypeScript', 'Tailwind CSS v4', 'Gemini API'],
     description: 'A commercial product creation form built with Next.js and Server Actions. Features secure API integration and a custom Gemini AI module that automatically generates SEO metadata based on user input',
@@ -77,7 +77,7 @@ export const petTimelineData: ITimelineItem[] = [
   {
     id: 7,
     category: 'Pet',
-    date: 'Feb 2026',
+    date: 'Feb 2024',
     title: 'Clicker Game',
     subtitle: ['JavaScript ES6', 'HTML5/CSS3', 'LocalStorage'],
     description: 'Little clicker game: Bash the bots! Smash those robots until their circuits fry. Farm some gold and pay off your debt - but make sure you take some time while you do it =)',
@@ -89,7 +89,7 @@ export const petTimelineData: ITimelineItem[] = [
   {
     id: 8,
     category: 'Pet',
-    date: 'Jan 2025',
+    date: 'Jan 2024',
     title: 'Fitness App',
     subtitle: ['Next.js 16', 'TypeScript', 'Tailwind v4', 'LocalStorage', 'Framer Motion'],
     description: 'A modern Single Page Application (SPA) for selecting fitness plans. Features server-side rendering for speed, a persistent smart timer, and a fully adaptive UI.',
@@ -136,7 +136,7 @@ export const workTimelineData: ITimelineItem[] = [
   {
     id: 3,
     category: 'Work',
-    date: 'Sep 2025 - Present',
+    date: 'Sep 2024 - Present',
     title: 'Freelance',
     subtitle: 'Frontend/FullStack Developer',
     description: 'Development from a simple website to a small CRM system',
