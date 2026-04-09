@@ -6,7 +6,7 @@ export const petTimelineData: ITimelineItem[] = [
     id: 1,
     category: 'Pet',
     date: 'Mar 2026',
-    title: 'Lite ai chat',
+    title: 'Freelance CRM',
     subtitle: ['Next.js 16', 'TypeScript' , 'Prisma ORM', 'SQLite (local)', 'Turso/libSQL (production)', 'NextAuth.js v5', 'Tailwind CSS 4', 'Radix UI' ,'shadcn/ui', 'Recharts', 'Framer Motion', 'Gemini API', 'exchangerate-api.com'],
     description: 'A modern financial management CRM I built for freelancers to track projects, income, subscriptions, and get AI-powered insights.',
     code: 'https://github.com/M1g3l14Ka/freelance-crm',
