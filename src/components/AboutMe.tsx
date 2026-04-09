@@ -60,30 +60,30 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
     const [activeTab, setActiveTab] = useState('about');
 
     return (
-        <div 
-            className="fixed inset-0 z-1001 flex justify-center items-center p-4 bg-black/80 backdrop-blur-md" 
+        <div
+            className="fixed inset-0 z-1001 flex justify-center items-center p-4 bg-black/80 backdrop-blur-3xl min-h-screen overflow-y-auto "
             onClick={onClose}
         >
             <motion.div
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-[#0a0a0a] border border-white/20 w-full max-w-3xl rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_50px_rgba(168,85,247,0.2)]"
+                className="bg-[#0a0a0a] border border-white/20 w-full max-w-3xl rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_50px_rgba(168,85,247,0.2)] h-[85vh] max-h-[85vh] overflow-y-auto"
             >
                 <div className="w-full md:w-1/3 bg-white/5 p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-white/10">
-                    <div className="relative w-56 h-72 md:w-60 md:h-64 rounded-full overflow-hidden border-2 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.5)] mb-4">
+                    <div className="relative w-56 h-72 md:w-60 md:h-64 overflow-hidden border-2 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.5)] mb-4 rounded-2xl">
                         <Image
                             fill
                             alt="Michael K. profile photo"
                             src='/meImg/prof.webp'
                             sizes="(max-width: 768px) 224px, 288px"
-                            className="rounded-2xl object-cover object-center"
+                            className="object-cover object-center"
                         />
                     </div>
                     <h2 className="text-xl font-bold text-white font-mono text-center">Michael Katsion</h2>
                     <p className="text-purple-400 text-sm font-mono text-center mt-1">Frontend Developer</p>
                     <p className="text-gray-500 text-xs font-mono text-center mt-2">Vologda, Russia<br/>(Remote)</p>
-                    
+
                     <div className="mt-4 flex flex-col gap-2 text-xs font-mono">
                         <a href="https://t.me/M1g3L14Ka" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-purple-400 transition-colors">
                             @M1g3L14Ka
@@ -94,7 +94,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
                     </div>
                 </div>
 
-                <div className="w-full md:w-2/3 p-6 md:p-10">
+                <div className="w-full md:w-2/3 p-6 md:p-10 flex flex-col">
                     <div className="flex gap-4 mb-6 border-b border-white/10 pb-2 overflow-x-auto">
                         {tabs.map(tab => (
                             <button
@@ -111,23 +111,28 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
                         ))}
                     </div>
 
-                    <motion.div
-                        key={activeTab}
-                        initial={{ opacity: 0, x: 10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.2 }}
-                        className="text-gray-300 font-mono text-xs sm:text-sm leading-relaxed whitespace-pre-line min-h-[240px] sm:min-h-[280px]"
-                    >
-                        {content[activeTab as keyof typeof content]}
-                    </motion.div>
-
-                    <div className="mt-6 flex justify-end">
-                        <button 
-                            onClick={onClose} 
-                            className="text-gray-500 hover:text-white text-sm font-mono hover:underline transition-colors"
+                    <div className="flex-1 min-h-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                        style={{
+                            WebkitOverflowScrolling: "touch"
+                        }}>
+                        <motion.div
+                            key={activeTab}
+                            initial={{ opacity: 0, x: 10 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="text-gray-300 font-mono text-xs sm:text-sm leading-relaxed whitespace-pre-line"
                         >
-                            CLOSE_TERMINAL
-                        </button>
+                            {content[activeTab as keyof typeof content]}
+                        </motion.div>
+
+                        <div className="mt-6 flex justify-end">
+                            <button
+                                onClick={onClose}
+                                className="text-gray-500 hover:text-white text-sm font-mono hover:underline transition-colors"
+                            >
+                                CLOSE_TERMINAL
+                            </button>
+                        </div>
                     </div>
                 </div>
             </motion.div>
