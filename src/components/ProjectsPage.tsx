@@ -14,7 +14,7 @@ export default function ProjectsPage({ petTimelineData }: ProjectsPageProps) {
         <div>
             <div className="bg-[#050505] w-full">
                 <div className="w-auto flex justify-center flex-wrap items-center border-b p-3">
-                    <h1 className="text-4xl font-bold font-mono text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-rose-600/80">Pet-Projects Area</h1>
+                    <h1 className="text-4xl font-bold font-mono text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-rose-600/80 sm:text-center text-center">Pet-Projects Area</h1>
                 </div>
                 <div className="relative flex flex-col m-4 gap-12 py-10">
                     
