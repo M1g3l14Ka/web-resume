@@ -14,7 +14,7 @@ export default function FooterPage() {
         >
             <div className="bg-[#050505]">
                 <h1
-                    className="text-lg font-mono text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-rose-600/80"
+                    className="text-lg font-mono text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-rose-600/80 text-center sm:text-center"
                 >
                     © {currentYear} Kasion M.A. All materials on this website are the property of the Kasion M.A. All rights reserved.
                 </h1>
