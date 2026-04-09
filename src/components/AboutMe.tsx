@@ -68,7 +68,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
                 initial={{ scale: 0.9, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 onClick={(e) => e.stopPropagation()}
-                className="bg-[#0a0a0a] border border-white/20 w-full max-w-3xl rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_50px_rgba(168,85,247,0.2)] h-[85vh] max-h-[85vh] overflow-y-auto"
+                className="bg-[#0a0a0a] border border-white/20 w-full max-w-3xl rounded-3xl overflow-hidden flex flex-col md:flex-row shadow-[0_0_50px_rgba(168,85,247,0.2)] h-[85vh] max-h-[85vh] overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
                 <div className="w-full md:w-1/3 bg-white/5 p-6 flex flex-col items-center justify-center border-b md:border-b-0 md:border-r border-white/10">
                     <div className="relative w-56 h-72 md:w-60 md:h-64 overflow-hidden border-2 border-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.5)] mb-4 rounded-2xl">
@@ -81,7 +81,7 @@ export default function AboutModal({ onClose }: { onClose: () => void }) {
                         />
                     </div>
                     <h2 className="text-xl font-bold text-white font-mono text-center">Michael Katsion</h2>
-                    <p className="text-purple-400 text-sm font-mono text-center mt-1">Frontend Developer</p>
+                    <p className="text-purple-400 text-sm font-mono text-center mt-1">Frontend/Fullstack Developer</p>
                     <p className="text-gray-500 text-xs font-mono text-center mt-2">Vologda, Russia<br/>(Remote)</p>
 
                     <div className="mt-4 flex flex-col gap-2 text-xs font-mono">
