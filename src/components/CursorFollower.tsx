@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from "react"
+import { useEffect, useRef } from "react"
 
 export default function CursorFollower() {
     const cursorRef = useRef<HTMLDivElement>(null)
@@ -9,15 +9,12 @@ export default function CursorFollower() {
     const currentX = useRef(0)
     const currentY = useRef(0)
     const rafRef = useRef<number>(0)
-    const [isTouchDevice, setIsTouchDevice] = useState(false)
 
     useEffect(() => {
-        setIsTouchDevice('ontouchstart' in window || navigator.maxTouchPoints > 0)
-        document.body.style.cursor = 'none'
-    }, [])
-
-    useEffect(() => {
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
         if (isTouchDevice) return
+
+        document.body.style.cursor = 'none'
 
         const animate = () => {
             const ease = 0.2
@@ -45,9 +42,7 @@ export default function CursorFollower() {
             document.removeEventListener('mousemove', moveCursor)
             document.body.style.cursor = 'default'
         }
-    }, [isTouchDevice])
-
-    if (isTouchDevice) return null
+    }, [])
 
     return (
         <div

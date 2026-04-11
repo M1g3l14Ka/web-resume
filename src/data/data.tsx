@@ -1,5 +1,5 @@
 import { ITimelineItem, ISkill, IValue, ISocial } from "@/types";
-import { Download, Briefcase, Code2, Heart, Zap } from "lucide-react";
+import { Briefcase, Code2, Heart, Zap } from "lucide-react";
 
 
 export const petTimelineData: ITimelineItem[] = [

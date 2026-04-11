@@ -66,7 +66,7 @@ export default function HomePage({ headerTiles, projects }: HomePageProps) {
                     </div>
 
                     {/* Title */}
-                    <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] font-mono bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-rose-600/70 leading-none text-center">
+                    <h1 className="text-5xl sm:text-7xl md:text-9xl lg:text-[12rem] font-mono bg-clip-text text-transparent bg-linear-to-r from-orange-400 to-rose-600/70 leading-none text-center">
                         DEVELOPER
                     </h1>
 
@@ -78,7 +78,7 @@ export default function HomePage({ headerTiles, projects }: HomePageProps) {
                     <div className="flex gap-4 mt-8">
                         <Link
                             href="/contact"
-                            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-orange-400 to-rose-600 rounded-xl font-mono text-white hover:scale-105 transition-transform"
+                            className="flex items-center gap-2 px-6 py-3 bg-linear-to-r from-orange-400 to-rose-600 rounded-xl font-mono text-white hover:scale-105 transition-transform"
                         >
                             Get in Touch
                             <ArrowRight className="w-5 h-5" />
@@ -158,9 +158,9 @@ export default function HomePage({ headerTiles, projects }: HomePageProps) {
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className={`group flex-shrink-0 w-80 md:w-96 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all ${
+                                className={`group shrink-0 w-80 md:w-96 bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all ${
                                     project.isInProgress
-                                        ? 'opacity-60 grayscale hover:opacity-75 hover:grayscale-[50%]'
+                                        ? 'opacity-60 grayscale hover:opacity-75 hover:grayscale-50'
                                         : 'hover:border-purple-500/30'
                                 }`}
                             >
