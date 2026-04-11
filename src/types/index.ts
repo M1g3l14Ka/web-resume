@@ -31,3 +31,10 @@ export interface ILinkBtns {
   title: string;
   url: string;
 }
+
+export interface ISocial {
+  id: number;
+  name: string;
+  url: string;
+  icon: string;
+}
