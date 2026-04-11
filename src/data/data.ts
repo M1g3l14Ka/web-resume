@@ -145,22 +145,9 @@ export const workTimelineData: ITimelineItem[] = [
   },
 ];
 
-export const aboutTimelineData: ITimelineItem[] = [
-    {
-    id: 1,
-    category: 'About Me',
-    date: '2024',
-    title: 'Winner of "Professionals"',
-    subtitle: 'Regional Championship',
-    description: '1st place in "Mobile Game Development". Proved ability to deliver complex logic under strict deadlines.',
-    img:'/'
-  }
-]
-
-
 export const headerTitleBtns = [
-  { id: 'Pet', label: 'Projects Area' },
-  { id: 'Work', label: 'Work Area' },
+  { id: 'Pet', label: 'Projects' },
+  { id: 'Work', label: 'Work' },
 ];
 
 
@@ -185,3 +172,8 @@ export const hireBtns = [
   { id: 3, title:'GitHub', url:'https://github.com/M1g3L14Ka' }
 ]
 
+export const socials = [
+  { id: 1, name: "Telegram", url: "https://t.me/M1g3L14Ka", icon: "✈️" },
+  { id: 2, name: "VK", url: "https://vk.com/mi4aejl", icon: "💬" },
+  { id: 3, name: "GitHub", url: "https://github.com/M1g3L14Ka", icon: "🐙" },
+];
