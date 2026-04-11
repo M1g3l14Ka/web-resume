@@ -1,25 +1,7 @@
 import TileBackground from "@/components/TileBackground";
-import { headerTiles, workTimelineData } from "@/data/data";
+import { headerTiles, workTimelineData, skills, values } from "@/data/data";
 import { ITimelineItem } from "@/types";
-import { Download, Briefcase, Code2, Heart, Zap } from "lucide-react";
-
-const skills = [
-  { name: "Next.js / React", level: 95 },
-  { name: "TypeScript", level: 90 },
-  { name: "Tailwind CSS", level: 95 },
-  { name: "Node.js / Express", level: 80 },
-  { name: "Prisma ORM", level: 75 },
-  { name: "PostgreSQL / SQLite", level: 70 },
-  { name: "Docker", level: 65 },
-  { name: "Framer Motion", level: 85 },
-];
-
-const values = [
-  { icon: <Zap className="w-6 h-6" />, title: "Speed", desc: "Optimized code, fast loading, SSR/SSG where it matters." },
-  { icon: <Code2 className="w-6 h-6" />, title: "Clean Code", desc: "TypeScript, typing, reusable components, SOLID principles." },
-  { icon: <Heart className="w-6 h-6" />, title: "Passion", desc: "Every project is personal. Animations, UX, attention to detail." },
-  { icon: <Briefcase className="w-6 h-6" />, title: "Reliability", desc: "Deadlines are law. Communication is transparent, results are predictable." },
-];
+import { Download } from "lucide-react";
 
 export default function AboutPage() {
   return (
