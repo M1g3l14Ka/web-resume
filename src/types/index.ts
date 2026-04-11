@@ -38,3 +38,20 @@ export interface ISocial {
   url: string;
   icon: string;
 }
+
+export interface ISkill {
+  name: string;
+  level: number;
+}
+
+export interface IValue {
+  icon: React.ReactNode;
+  title: string;
+  desc: string;
+}
+
+export interface IContactInfo {
+  label: string;
+  value: string;
+  iconType: 'location' | 'clock' | 'email';
+}
