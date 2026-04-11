@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Navbar from "@/components/Navbar";
+import CursorFollower from "@/components/CursorFollower";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -25,9 +27,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#050505]`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#050505] text-white`}
       >
-        {children}
+        <Navbar />
+        <CursorFollower />
+        <main className="pt-20">
+          {children}
+        </main>
       </body>
     </html>
   );
