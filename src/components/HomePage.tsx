@@ -4,41 +4,20 @@ import Link from "next/link"
 import Image from "next/image"
 import { IHeaderTitleBtns, IHeaderTiles} from "@/types"
 import { BorderTrail } from "@/components/motion-primitives/border-trail"
-import { motion, useScroll, useTransform } from "framer-motion"
-import { useMemo, useSyncExternalStore } from "react"
+import { motion } from "framer-motion"
+
 
 interface HomePageProps {
     headerTitleBtns: IHeaderTitleBtns[];
     headerTiles: IHeaderTiles[];
 }
 
-export default function HomePage({ headerTitleBtns, headerTiles }:HomePageProps) {
+export default function HomePage({ headerTitleBtns }:HomePageProps) {
 
-    const mounted = useSyncExternalStore(
-        () => () => {},
-        () => true,
-        () => false
-    );
-
-    const { scrollY } = useScroll();
-
-    const yLeft = useTransform(scrollY, [0, 1000], [-250, 150])
-    const yRight = useTransform(scrollY, [0, 1000], [-150, -150])
-
-    const shuffelColumns = useMemo(() => {
-        return [...Array(16)].map(() => {
-            return [ ...headerTiles, ...headerTiles, ].sort(() => Math.random() - 0.5)
-        })
-    }, [headerTiles])
 
     const containerVariants = {
         hidden: { opacity: 0, y: -20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-    }
-
-    const titleVariants = {
-        hidden: { opacity: 0, y: -30 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
     }
 
     return (
@@ -48,38 +27,6 @@ export default function HomePage({ headerTitleBtns, headerTiles }:HomePageProps)
             animate="visible"
             className="flex flex-col p-2 bg-[#050505] relative overflow-hidden min-h-screen"
         >
-            <motion.div
-                variants={titleVariants}
-                initial="hidden"
-                animate="visible"
-                className="relative z-0"
-            >
-                <div className="absolute inset-0 grid grid-cols-4 md:grid-cols-4 lg:grid-cols-12 rotate-[-15deg] scale-125 p-0 m-0 opacity-30 pointer-events-none w-[120vw] ">
-                    {mounted && (
-                        shuffelColumns.map((columnItems, colIndex) => (
-                            <motion.div
-                                key={colIndex}
-                                className="flex flex-col gap-6 will-change-transform"
-                                style={{ y: colIndex % 2 === 0 ? yLeft : yRight }}
-                            >
-                                {columnItems.map((tile, inedx) => (
-                                    <div key={`${colIndex}-${inedx}`} className="flex justify-center items-center">
-                                        <Image
-                                            width={60}
-                                            height={60}
-                                            alt={tile.alt}
-                                            src={tile.src}
-                                            sizes="60px"
-                                            className="brightness-75 blur-[1px]"
-                                        />
-                                    </div>
-                                ))}
-                            </motion.div>
-                        ))
-                    )}
-                </div>
-            </motion.div>
-
             <div className="flex flex-col p-2 z-10 w-auto h-full">
                 <div className="flex-1 flex justify-center flex-col items-center md:m-24 w-auto">
                     <div>
