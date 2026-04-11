@@ -2,19 +2,31 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Send, Mail, MapPin, Clock } from "lucide-react"
+import { Send, Mail, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react"
 import { socials } from "@/data/data"
+import { sendContactForm } from "@/app/actions/contact"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
-  const [isSent, setIsSent] = useState(false)
+  const [isSending, setIsSending] = useState(false)
+  const [status, setStatus] = useState<'success' | 'error' | null>(null)
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // TODO: connect real sending (Resend, Formspree, etc.)
-    setIsSent(true)
-    setTimeout(() => setIsSent(false), 3000)
-    setFormData({ name: "", email: "", message: "" })
+    setIsSending(true)
+    setStatus(null)
+
+    const result = await sendContactForm(formData)
+
+    if (result.success) {
+      setStatus('success')
+      setFormData({ name: "", email: "", message: "" })
+    } else {
+      setStatus('error')
+    }
+
+    setIsSending(false)
+    setTimeout(() => setStatus(null), 5000)
   }
 
   return (
@@ -27,12 +39,32 @@ export default function ContactPage() {
           className="text-center mb-12"
         >
           <h1 className="text-5xl md:text-7xl font-mono font-bold mb-4">
-            Let&rsquo;s <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-rose-600">Talk</span>
+            Let&apos;s <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-rose-600">Talk</span>
           </h1>
           <p className="text-gray-400 text-lg">
-            Got an idea? A project? Or just want to say hi? I&rsquo;m here!
+            Got an idea? A project? Or just want to say hi? I&apos;m here!
           </p>
         </motion.div>
+
+        {/* Status Messages */}
+        {status && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className={`mb-8 p-4 rounded-xl flex items-center gap-3 font-mono ${
+              status === 'success'
+                ? 'bg-green-500/10 border border-green-500/30 text-green-400'
+                : 'bg-red-500/10 border border-red-500/30 text-red-400'
+            }`}
+          >
+            {status === 'success' ? (
+              <CheckCircle className="w-5 h-5" />
+            ) : (
+              <AlertCircle className="w-5 h-5" />
+            )}
+            <span>{status === 'success' ? 'Message sent! I&apos;ll get back to you soon.' : 'Something went wrong. Try again or email directly.'}</span>
+          </motion.div>
+        )}
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Contact Info */}
@@ -48,7 +80,7 @@ export default function ContactPage() {
               <div className="grid grid-cols-2 gap-4">
                 {socials.map((social) => (
                   <a
-                    key={social.name}
+                    key={social.id}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -75,7 +107,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center gap-3 text-gray-400">
                   <Mail className="w-5 h-5 text-purple-500" />
-                  <span>michael@kasion.ru</span>
+                  <span>kasionma@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -97,6 +129,7 @@ export default function ContactPage() {
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-mono focus:border-purple-500 focus:outline-none transition-colors"
                   placeholder="What's your name?"
                   required
+                  disabled={isSending}
                 />
               </div>
               <div>
@@ -108,6 +141,7 @@ export default function ContactPage() {
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-mono focus:border-purple-500 focus:outline-none transition-colors"
                   placeholder="your@email.com"
                   required
+                  disabled={isSending}
                 />
               </div>
               <div>
@@ -118,13 +152,22 @@ export default function ContactPage() {
                   className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-mono focus:border-purple-500 focus:outline-none transition-colors resize-none h-32"
                   placeholder="Tell me about your project..."
                   required
+                  disabled={isSending}
                 />
               </div>
               <button
                 type="submit"
-                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-400 to-rose-600 rounded-xl py-3 font-mono text-white hover:scale-105 transition-transform"
+                disabled={isSending}
+                className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-400 to-rose-600 rounded-xl py-3 font-mono text-white hover:scale-105 transition-transform disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
               >
-                {isSent ? "Sent! ✓" : (
+                {isSending ? (
+                  <span className="animate-pulse">Sending...</span>
+                ) : status === 'success' ? (
+                  <>
+                    <CheckCircle className="w-5 h-5" />
+                    Sent!
+                  </>
+                ) : (
                   <>
                     <Send className="w-5 h-5" />
                     Send Message
@@ -136,5 +179,5 @@ export default function ContactPage() {
         </div>
       </div>
     </div>
-  );
+  )
 }

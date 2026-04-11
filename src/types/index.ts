@@ -36,6 +36,7 @@ export interface ISocial {
   id: number;
   name: string;
   url: string;
+  icon: string;
 }
 
 export interface ISkill {

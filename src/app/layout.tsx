@@ -15,8 +15,31 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://michaelkasion.ru"),
   title: "Michael K. | Frontend Developer",
-  description: "Interactive portfolio of a Next.js & React developer",
+  description: "Interactive portfolio of a Next.js & React developer specializing in modern web applications.",
+  openGraph: {
+    title: "Michael K. | Frontend Developer",
+    description: "Interactive portfolio showcasing Next.js, React & TypeScript projects.",
+    type: "website",
+    url: "https://michaelkasion.ru/",
+    siteName: "Michael K. Portfolio",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Michael K. - Frontend Developer Portfolio",
+      },
+    ],
+    locale: "en_US",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Michael K. | Frontend Developer",
+    description: "Interactive portfolio showcasing Next.js, React & TypeScript projects.",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({
