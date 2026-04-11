@@ -174,10 +174,10 @@ export const hireBtns = [
 ]
 
 export const socials: ISocial[] = [
-  { id: 1, name: "Telegram", url: "https://t.me/M1g3L14Ka", icon: "✈️" },
-  { id: 2, name: "VK", url: "https://vk.com/mi4aejl", icon: "💬" },
-  { id: 3, name: "GitHub", url: "https://github.com/M1g3L14Ka", icon: "🐙" },
-  { id: 4, name: "Email", url: "mailto:kasionma@gmail.com", icon: "📧" },
+  { id: 1, name: "Telegram", url: "https://t.me/M1g3L14Ka" },
+  { id: 2, name: "VK", url: "https://vk.com/mi4aejl" },
+  { id: 3, name: "GitHub", url: "https://github.com/M1g3L14Ka"},
+  { id: 4, name: "Email", url: "mailto:kasionma@gmail.com" },
 ];
 
 export const skills: ISkill[] = [
