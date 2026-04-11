@@ -3,13 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Send, Mail, MapPin, Clock } from "lucide-react"
-
-const socials = [
-  { name: "Telegram", url: "https://t.me/M1g3L14Ka", icon: "✈️" },
-  { name: "VK", url: "https://vk.com/mi4aejl", icon: "💬" },
-  { name: "GitHub", url: "https://github.com/M1g3L14Ka", icon: "🐙" },
-  { name: "Email", url: "mailto:kasionma@gmail.com", icon: "📧" },
-];
+import { socials } from "@/data/data"
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
