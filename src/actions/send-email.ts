@@ -5,7 +5,7 @@ import { Resend } from "resend"
 const resend = new Resend(process.env.RESEND_API_KEY)
 
 const RECIPIENT_EMAIL = process.env.RECIPIENT_EMAIL || 'kasionma@gmail.com'
-const FROM_EMAIL = process.env.FROM_EMAIL || 'Portfolio Contact <onboarding@resend.dev>'
+const FROM_EMAIL = process.env.FROM_EMAIL || 'noreply@michaelkasion.ru'
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
