@@ -62,7 +62,7 @@ export default function ContactPage() {
             ) : (
               <AlertCircle className="w-5 h-5" />
             )}
-            <span>{status === 'success' ? 'Message sent! I&apos;ll get back to you soon.' : 'Something went wrong. Try again or email directly.'}</span>
+            <span>{status === 'success' ? `Message sent! I will get back to you soon.` : `Something went wrong. Try again or email directly.`}</span>
           </motion.div>
         )}
 
