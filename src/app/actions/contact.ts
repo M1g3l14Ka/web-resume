@@ -10,10 +10,23 @@ interface ContactFormData {
 
 export async function sendContactForm(data: ContactFormData) {
   const apiKey = process.env.RESEND_API_KEY;
+  const recipientEmail = process.env.RECIPIENT_EMAIL;
 
+  // Проверка переменных окружения
   if (!apiKey) {
-    console.error('RESEND_API_KEY is not set');
-    return { success: false, error: 'Server configuration error' };
+    return {
+      success: false,
+      error: 'Server configuration error: RESEND_API_KEY not set',
+      details: 'Add RESEND_API_KEY to your .env.local and Vercel environment variables'
+    };
+  }
+
+  if (!recipientEmail) {
+    return {
+      success: false,
+      error: 'Server configuration error: RECIPIENT_EMAIL not set',
+      details: 'Add RECIPIENT_EMAIL to your .env.local and Vercel environment variables'
+    };
   }
 
   if (!data.name || !data.email || !data.message) {
@@ -25,7 +38,7 @@ export async function sendContactForm(data: ContactFormData) {
   try {
     const result = await resend.emails.send({
       from: process.env.FROM_EMAIL || 'onboarding@resend.dev',
-      to: [process.env.RECIPIENT_EMAIL || ''],
+      to: [recipientEmail],
       subject: `Portfolio: New message from ${data.name}`,
       replyTo: data.email,
       html: `
@@ -49,10 +62,21 @@ export async function sendContactForm(data: ContactFormData) {
       `,
     });
 
-    console.log('Email sent successfully:', result);
+    if (result.error) {
+      return {
+        success: false,
+        error: 'Resend API error',
+        details: result.error.message
+      };
+    }
+
     return { success: true };
-  } catch (error) {
-    console.error('Failed to send contact form:', error);
-    return { success: false, error: 'Failed to send message' };
+  } catch (error: unknown) {
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+    return {
+      success: false,
+      error: 'Failed to send message',
+      details: errorMessage
+    };
   }
 }

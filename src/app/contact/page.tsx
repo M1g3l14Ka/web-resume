@@ -10,11 +10,13 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" })
   const [isSending, setIsSending] = useState(false)
   const [status, setStatus] = useState<'success' | 'error' | null>(null)
+  const [errorMsg, setErrorMsg] = useState('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSending(true)
     setStatus(null)
+    setErrorMsg('')
 
     const result = await sendContactForm(formData)
 
@@ -23,10 +25,11 @@ export default function ContactPage() {
       setFormData({ name: "", email: "", message: "" })
     } else {
       setStatus('error')
+      setErrorMsg(result.error + (result.details ? `: ${result.details}` : ''))
     }
 
     setIsSending(false)
-    setTimeout(() => setStatus(null), 5000)
+    setTimeout(() => { setStatus(null); setErrorMsg('') }, 10000)
   }
 
   return (
@@ -62,7 +65,12 @@ export default function ContactPage() {
             ) : (
               <AlertCircle className="w-5 h-5" />
             )}
-            <span>{status === 'success' ? `Message sent! I will get back to you soon.` : `Something went wrong. Try again or email directly.`}</span>
+            <span>
+              {status === 'success'
+                ? 'Message sent! I will get back to you soon.'
+                : `Failed to send: ${errorMsg}`
+              }
+            </span>
           </motion.div>
         )}
 

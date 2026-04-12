@@ -15,17 +15,37 @@ interface HomePageProps {
 }
 
 function ProjectCard({ project }: { project: ITimelineItem }) {
+    const ref = useRef<HTMLDivElement>(null)
+    const [isVisible, setIsVisible] = useState(false)
+
+    useEffect(() => {
+        const el = ref.current
+        if (!el) return
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true)
+                    observer.disconnect()
+                }
+            },
+            { threshold: 0.1 }
+        )
+
+        observer.observe(el)
+        return () => observer.disconnect()
+    }, [])
+
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-20px" }}
-            transition={{ duration: 0.4, ease: "easeOut" }}
-            className={`group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all ${
+        <div
+            ref={ref}
+            className={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all duration-500 ease-out ${
                 project.isInProgress
                     ? 'opacity-60 grayscale hover:opacity-75 hover:grayscale-[50%]'
-                    : 'hover:border-purple-500/30'
-            }`}
+                    : isVisible
+                        ? 'opacity-100 translate-y-0'
+                        : 'opacity-0 translate-y-4'
+            } ${!project.isInProgress ? 'hover:border-purple-500/30' : ''}`}
         >
             <div className="relative h-48 bg-gray-800">
                 {project.img && project.img !== '/' ? (
@@ -98,7 +118,7 @@ function ProjectCard({ project }: { project: ITimelineItem }) {
                     )}
                 </div>
             </div>
-        </motion.div>
+        </div>
     )
 }
 
