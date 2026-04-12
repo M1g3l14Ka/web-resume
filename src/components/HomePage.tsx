@@ -14,13 +14,13 @@ interface HomePageProps {
     projects: ITimelineItem[];
 }
 
-function ProjectCard({ project, index }: { project: ITimelineItem; index: number }) {
+function ProjectCard({ project }: { project: ITimelineItem }) {
     return (
         <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ delay: index * 0.08, duration: 0.5 }}
+            viewport={{ once: true, margin: "-20px" }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
             className={`group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl overflow-hidden transition-all ${
                 project.isInProgress
                     ? 'opacity-60 grayscale hover:opacity-75 hover:grayscale-[50%]'
@@ -241,23 +241,21 @@ export default function HomePage({ headerTiles, projects }: HomePageProps) {
                 </div>
 
                 {isMobile ? (
-                    /* Mobile: vertical list */
                     <div className="flex flex-col gap-6 px-6 max-w-lg mx-auto">
-                        {projects.map((project, index) => (
-                            <ProjectCard key={project.id} project={project} index={index} />
+                        {projects.map((project) => (
+                            <ProjectCard key={project.id} project={project} />
                         ))}
                     </div>
                 ) : (
-                    /* Desktop: horizontal scroll */
                     <div
                         ref={scrollRef}
                         onScroll={updateScrollButtons}
                         className="overflow-x-auto scrollbar-hide"
                     >
                         <div className="flex gap-6 px-6 pb-6 w-max">
-                            {projects.map((project, index) => (
+                            {projects.map((project) => (
                                 <div key={project.id} className="w-80 md:w-96 flex-shrink-0">
-                                    <ProjectCard project={project} index={index} />
+                                    <ProjectCard project={project} />
                                 </div>
                             ))}
                         </div>
