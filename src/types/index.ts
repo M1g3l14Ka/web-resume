@@ -1,4 +1,3 @@
-
 export type CategoryType = 'Work' | 'Pet' | 'About Me';
 
 export interface ITimelineItem {
@@ -13,7 +12,6 @@ export interface ITimelineItem {
   img: string;
   isInProgress?: boolean;
 }
-
 
 export interface IHeaderTitleBtns {
   id: string;
@@ -54,4 +52,16 @@ export interface IContactInfo {
   label: string;
   value: string;
   iconType: 'location' | 'clock' | 'email';
+}
+
+export interface IContactForm {
+  name: string;
+  email: string;
+  message: string;
+}
+
+export interface ISendEmailResult {
+  success: boolean;
+  error?: string;
+  details?: string;
 }

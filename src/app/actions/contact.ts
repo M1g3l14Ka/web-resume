@@ -1,14 +1,9 @@
 'use server';
 
 import nodemailer from 'nodemailer';
+import { IContactForm, ISendEmailResult } from '@/types';
 
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
-
-export async function sendContactForm(data: ContactFormData) {
+export async function sendContactForm(data: IContactForm): Promise<ISendEmailResult> {
   const gmailUser = process.env.GMAIL_USER;
   const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
 
@@ -37,7 +32,7 @@ export async function sendContactForm(data: ContactFormData) {
   try {
     await transporter.sendMail({
       from: `"Portfolio" <${gmailUser}>`,
-      to: 'kasionma@gmail.com',
+      to: 'katcion.play@gmail.com',
       replyTo: data.email,
       subject: `Portfolio: New message from ${data.name}`,
       html: `

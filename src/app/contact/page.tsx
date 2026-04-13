@@ -5,9 +5,10 @@ import { motion } from "framer-motion"
 import { Send, Mail, MapPin, Clock, CheckCircle, AlertCircle } from "lucide-react"
 import { socials } from "@/data/data"
 import { sendContactForm } from "@/app/actions/contact"
+import { IContactForm } from "@/types"
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" })
+  const [formData, setFormData] = useState<IContactForm>({ name: "", email: "", message: "" })
   const [isSending, setIsSending] = useState(false)
   const [status, setStatus] = useState<'success' | 'error' | null>(null)
   const [errorMsg, setErrorMsg] = useState('')
