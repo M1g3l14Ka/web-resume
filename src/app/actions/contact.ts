@@ -1,6 +1,6 @@
 'use server';
 
-import { Resend } from 'resend';
+import nodemailer from 'nodemailer';
 
 interface ContactFormData {
   name: string;
@@ -9,23 +9,14 @@ interface ContactFormData {
 }
 
 export async function sendContactForm(data: ContactFormData) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const recipientEmail = process.env.RECIPIENT_EMAIL;
+  const gmailUser = process.env.GMAIL_USER;
+  const gmailAppPassword = process.env.GMAIL_APP_PASSWORD;
 
-  // Проверка переменных окружения
-  if (!apiKey) {
+  if (!gmailUser || !gmailAppPassword) {
     return {
       success: false,
-      error: 'Server configuration error: RESEND_API_KEY not set',
-      details: 'Add RESEND_API_KEY to your .env.local and Vercel environment variables'
-    };
-  }
-
-  if (!recipientEmail) {
-    return {
-      success: false,
-      error: 'Server configuration error: RECIPIENT_EMAIL not set',
-      details: 'Add RECIPIENT_EMAIL to your .env.local and Vercel environment variables'
+      error: 'Server configuration error',
+      details: 'GMAIL_USER or GMAIL_APP_PASSWORD not set'
     };
   }
 
@@ -33,14 +24,22 @@ export async function sendContactForm(data: ContactFormData) {
     return { success: false, error: 'All fields are required' };
   }
 
-  const resend = new Resend(apiKey);
+  const transporter = nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true,
+    auth: {
+      user: gmailUser,
+      pass: gmailAppPassword,
+    },
+  });
 
   try {
-    const result = await resend.emails.send({
-      from: process.env.FROM_EMAIL || 'onboarding@resend.dev',
-      to: [recipientEmail],
-      subject: `Portfolio: New message from ${data.name}`,
+    await transporter.sendMail({
+      from: `"Portfolio" <${gmailUser}>`,
+      to: 'kasionma@gmail.com',
       replyTo: data.email,
+      subject: `Portfolio: New message from ${data.name}`,
       html: `
         <div style="font-family: monospace; max-width: 600px;">
           <h2 style="color: #a855f7;">New Contact Form Submission</h2>
@@ -61,14 +60,6 @@ export async function sendContactForm(data: ContactFormData) {
         </div>
       `,
     });
-
-    if (result.error) {
-      return {
-        success: false,
-        error: 'Resend API error',
-        details: result.error.message
-      };
-    }
 
     return { success: true };
   } catch (error: unknown) {
