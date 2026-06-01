@@ -3,7 +3,7 @@ export type CategoryType = 'Work' | 'Pet' | 'About Me';
 export interface ITimelineItem {
   id: number;
   category: CategoryType;
-  date: string;
+  date?: string;
   title: string;
   subtitle: string | string[];
   description: string;
