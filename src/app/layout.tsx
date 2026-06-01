@@ -14,14 +14,14 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://michaelkasion.ru"),
+  metadataBase: new URL("https://mkfox.tech"),
   title: "Michael K. | Frontend Developer",
   description: "Interactive portfolio of a Next.js & React developer specializing in modern web applications.",
   openGraph: {
     title: "Michael K. | Frontend Developer",
     description: "Interactive portfolio showcasing Next.js, React & TypeScript projects.",
     type: "website",
-    url: "https://michaelkasion.ru/",
+    url: "https://mkfox.tech/",
     siteName: "Michael K. Portfolio",
     images: [
       {
